@@ -49,9 +49,8 @@ def parse_args():
 
 
 if __name__ == '__main__':
-    # args = parse_args()
-    # start = time.clock()
-    # run_segmentation_in_parallel(args.input_folder)
-    # elapsed = time.clock()
-    # print("Time spent in run_segmentation_in_parallel is: ", elapsed - start)
-    rename_output_file('test_parallel_proc/file69.txt')
+    args = parse_args()
+    start = time.clock()
+    run_segmentation_in_parallel(args.input_folder)
+    elapsed = time.clock()
+    print("Time spent in run_segmentation_in_parallel is: ", elapsed - start)
