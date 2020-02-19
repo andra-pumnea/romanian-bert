@@ -8,7 +8,7 @@ import argparse
 
 def segment_sentences(input_file):
     with open(input_file, 'r') as ro_txt:
-        output_file = 'processed_' + input_file
+        output_file = rename_output_file(input_file)
         for line in ro_txt:
             doc = sent_tokenize(line)
             for sent in doc:
@@ -19,8 +19,13 @@ def segment_sentences(input_file):
     return output_file
 
 
+def rename_output_file(filename):
+    name, ext = filename.split('.')
+    return "{name}_{processed}.{ext}".format(name=name, processed='processed', ext=ext)
+
+
 def run_segmentation_in_parallel(input_folder):
-    # Create a pool of processes. By default, one is created for each CPU in your machine.
+    # Create a pool of processes. By default, one is created for each CPU in your 69machine.
     #split -l 5000 -d --additional-suffix=.txt $FileName file
     with concurrent.futures.ProcessPoolExecutor() as executor:
         # Get a list of files to process
@@ -44,8 +49,9 @@ def parse_args():
 
 
 if __name__ == '__main__':
-    args = parse_args()
-    start = time.clock()
-    run_segmentation_in_parallel(args.input_folder)
-    elapsed = time.clock()
-    print("Time spent in run_segmentation_in_parallel is: ", elapsed - start)
+    # args = parse_args()
+    # start = time.clock()
+    # run_segmentation_in_parallel(args.input_folder)
+    # elapsed = time.clock()
+    # print("Time spent in run_segmentation_in_parallel is: ", elapsed - start)
+    rename_output_file('test_parallel_proc/file69.txt')
