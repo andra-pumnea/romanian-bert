@@ -19,12 +19,12 @@ def segment_sentences(input_file):
     return output_file
 
 
-def run_segmentation_in_parallel():
+def run_segmentation_in_parallel(input_folder):
     # Create a pool of processes. By default, one is created for each CPU in your machine.
     #split -l 5000 -d --additional-suffix=.txt $FileName file
     with concurrent.futures.ProcessPoolExecutor() as executor:
         # Get a list of files to process
-        input_files = glob.glob(args.input_folder)
+        input_files = glob.glob(input_folder)
 
         start = time.clock()
 
@@ -46,6 +46,6 @@ def parse_args():
 if __name__ == '__main__':
     args = parse_args()
     start = time.clock()
-    run_segmentation_in_parallel()
+    run_segmentation_in_parallel(args.input_folder)
     elapsed = time.clock()
     print("Time spent in run_segmentation_in_parallel is: ", elapsed - start)
