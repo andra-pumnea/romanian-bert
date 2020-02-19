@@ -8,7 +8,7 @@ import argparse
 
 def segment_sentences(input_file):
     with open(input_file, 'r') as ro_txt:
-        output_file = input_file + '_processed'
+        output_file = 'processed_' + input_file
         for line in ro_txt:
             doc = sent_tokenize(line)
             for sent in doc:
