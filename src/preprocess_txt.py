@@ -30,15 +30,9 @@ def run_segmentation_in_parallel(input_folder):
     with concurrent.futures.ProcessPoolExecutor() as executor:
         # Get a list of files to process
         input_files = glob.glob(input_folder)
-
-        start = time.clock()
-
         # Process the list of files, but split the work across the process pool to use all CPUs!
         for input_file, output_file in zip(input_files, executor.map(segment_sentences, input_files)):
-            print(f"A preprocessing for {input_file} was saved as {output_file}")
-
-        elapsed = time.clock()
-        print("Time spent in current batch is: ", elapsed - start)
+            print("A preprocessing for {input_file} was saved as {output_file}".format(input_file=input_file, output_file=output_file))
 
 
 def parse_args():
