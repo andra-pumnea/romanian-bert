@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-${FileName}=./ro_data/ro_dedup.txt
-${FolderName}=./ro_data/split_dataset
+FileName=./ro_data/ro_dedup.txt
+FolderName=./ro_data/split_dataset
 
 # TODO:get data
 # split the dataset into smaller files containing 55 000 lines per file
