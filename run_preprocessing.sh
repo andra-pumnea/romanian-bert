@@ -9,4 +9,4 @@ split -l 550000 -d --additional-suffix=.txt $FileName file > ${FolderName}
 # run the sentence segmentation step
 python ./src/preprocess_txt.py --input_folder ${FolderName}
 # merge the preprocessed files back into one dataset
-find . -name "file*_pro cessed.txt" | sort -k1 | xargs cat > ./ro_data/ro_dedup_processed.txt
+find . -name "file*_processed.txt" | sort -k1 | xargs cat > ./ro_data/ro_dedup_processed.txt
