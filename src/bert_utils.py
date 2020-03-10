@@ -1,5 +1,5 @@
 from pathlib import Path
-from tokenizers import WordPiece
+from tokenizers import BertWordPieceTokenizer
 from tokenizers.processors import BertProcessing
 
 
@@ -7,7 +7,7 @@ def train_tokenizer():
     paths = [str(x) for x in Path("./ro_data/").glob("*_processed.txt")]
 
     # Initialize a tokenizer
-    tokenizer = WordPiece()
+    tokenizer = BertWordPieceTokenizer()
 
     # Customize training
     tokenizer.train(files=paths, vocab_size=30_522, min_frequency=2, special_tokens=[
@@ -23,7 +23,7 @@ def train_tokenizer():
 
 
 def test_tokenizer():
-    tokenizer = WordPiece(
+    tokenizer = BertWordPieceTokenizer(
         "./ro_data/rombert-vocab.json",
         "./ro_data/rombert-merges.txt", )
 
