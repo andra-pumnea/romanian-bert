@@ -25,7 +25,7 @@ def rename_output_file(filename):
 
 
 def run_segmentation_in_parallel(input_folder):
-    # Create a pool of processes. By default, one is created for each CPU in your 69machine.
+    # Create a pool of processes. By default, one is created for each CPU in your machine.
     #split -l 5000 -d --additional-suffix=.txt $FileName file
     with concurrent.futures.ProcessPoolExecutor() as executor:
         # Get a list of files to process
