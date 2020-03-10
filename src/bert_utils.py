@@ -4,7 +4,7 @@ from tokenizers.processors import BertProcessing
 
 
 def train_tokenizer():
-    paths = [str(x) for x in Path("./ro_data/").glob("**/*.txt")]
+    paths = [str(x) for x in Path("./ro_data/").glob("*_processed.txt")]
 
     # Initialize a tokenizer
     tokenizer = WordPiece()
@@ -28,8 +28,7 @@ def test_tokenizer():
         "./ro_data/rombert-merges.txt", )
 
     tokenizer._tokenizer.post_processor = BertProcessing(
-        ("</s>", tokenizer.token_to_id("</s>")),
-        ("<s>", tokenizer.token_to_id("<s>")), )
+        ("[SEP]", tokenizer.token_to_id("[SEP]")) )
 
     tokenizer.enable_truncation(max_length=512)
 
