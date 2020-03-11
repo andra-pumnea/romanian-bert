@@ -10,3 +10,6 @@ split -l 550000 -d --additional-suffix=.txt $FileName file > ${FolderName}
 python ./src/preprocess_txt.py --input_folder ${FolderName}
 # merge the preprocessed files back into one dataset
 find . -name "file*_processed.txt" | sort -k1 | xargs cat > ./ro_data/ro_dedup_processed.txt
+
+#shuffle sentence order
+#cat ro_dedup_processed.txt | shuf -o ro_dedup_processed.txt

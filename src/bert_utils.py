@@ -24,11 +24,7 @@ def train_tokenizer():
 
 def test_tokenizer():
     tokenizer = BertWordPieceTokenizer(
-        "./ro_data/rombert-vocab.json",
-        "./ro_data/rombert-merges.txt", )
-
-    tokenizer._tokenizer.post_processor = BertProcessing(
-        ("[SEP]", tokenizer.token_to_id("[SEP]")) )
+        "./ro_data/rombert-vocab.txt")
 
     tokenizer.enable_truncation(max_length=512)
 
