@@ -39,8 +39,10 @@ def ner():
     )
 
     # 2. Create a DataProcessor that handles all the conversion from raw text into a pytorch Dataset
-    ner_labels = ["[PAD]", "O", "I-ORDINAL", "I-ORGANIZATION", "I-NUMERIC_VALUE", "I-DATETIME", "I-PRODUCT", "I-PERSON", "I-GPE", 
-                  "I-NAT_REL_POL", "I-FACILITY", "I-QUANTITY", "I-LOC", "I-MONEY", "I-Event", "I-PERIOD", "I-WORK_OF_ART", "I-LANGUAGE"]
+    ner_labels = ["[PAD]", 'O', 'I-ORDINAL', 'I-ORGANIZATION', 'I-NUMERIC_VALUE',
+       'I-DATETIME', 'I-PRODUCT', 'I-PERSON', 'I-GPE', 'I-NAT_REL_POL',
+       'I-FACILITY', 'I-QUANTITY', 'I-LOC', 'I-MONEY', 'I-EVENT',
+       'I-PERIOD', 'I-WORK_OF_ART', 'I-LANGUAGE']
 
     processor = NERProcessor(
         tokenizer=tokenizer, max_seq_len=128, data_dir=Path("../downstream-tasks/ner"), delimiter="\t", metric="seq_f1", label_list=ner_labels
