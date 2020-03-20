@@ -44,7 +44,7 @@ def ner():
                    'I PERIOD', 'I WORK_OF_ART', 'I LANGUAGE']
 
     processor = NERProcessor(
-        tokenizer=tokenizer, max_seq_len=128, data_dir=Path("../downstream-tasks/ner"), delimiter="\t", metric="seq_f1", label_list=ner_labels
+        tokenizer=tokenizer, max_seq_len=128, data_dir=Path("../downstream-tasks/ner"), train_filename="train.txt", dev_filename="dev.txt", test_filename=None, delimiter="\t", metric="seq_f1", label_list=ner_labels
     )
 
     # 3. Create a DataSilo that loads several datasets (train/dev/test), provides DataLoaders for them and calculates a few descriptive statistics of our datasets
@@ -52,7 +52,7 @@ def ner():
 
     # 4. Create an AdaptiveModel
     # a) which consists of a pretrained language model as a basis
-    language_model = LanguageModel.load(lang_model)
+    language_model = LanguageModel.load(lang_model, language='romanian')
     # b) and a prediction head on top that is suited for our task => NER
     prediction_head = TokenClassificationHead(num_labels=len(ner_labels))
 
