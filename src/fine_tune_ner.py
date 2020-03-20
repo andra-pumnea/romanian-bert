@@ -28,8 +28,8 @@ def ner():
     set_all_seeds(seed=42)
     device, n_gpu = initialize_device_settings(use_cuda=True)
     n_epochs = 4
-    batch_size = 32
-    evaluate_every = 400
+    batch_size = 16
+    evaluate_every = 200
     lang_model =  "xlm-roberta-large"
     do_lower_case = False
 
