@@ -42,7 +42,7 @@ def ner():
     ner_labels = ["[PAD]", 'X','O', 'I-ORDINAL', 'I-ORGANIZATION', 'I-NUMERIC_VALUE', 'I-DATETIME', 'I-PRODUCT', 'I-PERSON', 'I-GPE', 'I-NAT_REL_POL',
                    'I-FACILITY', 'I-QUANTITY', 'I-LOC', 'I-MONEY', 'I-EVENT', 'I-PERIOD', 'I-WORK_OF_ART', 'I-LANGUAGE',
                    'B-ORDINAL', 'B-ORGANIZATION', 'B-NUMERIC_VALUE', 'B-DATETIME', 'B-PRODUCT', 'B-PERSON', 'B-GPE', 'B-NAT_REL_POL',
-                   'B-FACILITY', 'B-QUANTITY', 'B-LOC', 'I-MONEY', 'B-EVENT', 'B-PERIOD', 'B-WORK_OF_ART', 'B-LANGUAGE']
+                   'B-FACILITY', 'B-QUANTITY', 'B-LOC', 'B-MONEY', 'B-EVENT', 'B-PERIOD', 'B-WORK_OF_ART', 'B-LANGUAGE']
 
     processor = NERProcessor(
         tokenizer=tokenizer, max_seq_len=128, data_dir=Path("../downstream-tasks/ner"), train_filename="train.txt", dev_filename=None, dev_split=0.1, test_filename=None, delimiter="\t", metric="seq_f1", label_list=ner_labels
