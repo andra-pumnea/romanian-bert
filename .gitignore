@@ -5,3 +5,10 @@ venv/
 *.json
 .ipynb_checkpoints/
 .DS_Store
+*.zip
+
+src/saved_models/
+src/mlruns/
+src/cache/
+ro_data/
+scripts/wikiextractor/
